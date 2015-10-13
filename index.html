@@ -28,9 +28,12 @@
 
 <hr>
 
-<p>`function getTransformProperty(element) {</p>
+<p>`</p>
 
-<pre><code>var properties = [
+<pre><code>
+  function getTransformProperty(element) { 
+  
+  var properties = [
 
     'transform',
 
@@ -57,9 +60,10 @@ while (p = properties.shift()) {
 }
 
 return false;
+}
 </code></pre>
 
-<p>}`</p>
+<p>`</p>
 
 <hr>
 
@@ -67,17 +71,25 @@ return false;
 
 <hr>
 
-<p>`$( document ).ready(function() {</p>
+<p>`</p>
 
-<p>JQuery.fn.rotate = function() {</p>
+<p></p>
 
-<p>var div = document.getElementById('rotate');</p>
 
-<p>var property = getTransformProperty(div);</p>
+<pre><code>
+  
+$( document ).ready(function() {
 
-<p>if (property) {</p>
+JQuery.fn.rotate = function() {
 
-<pre><code>var d = 0;
+
+var div = document.getElementById('rotate');
+
+var property = getTransformProperty(div);
+
+if (property) {
+  
+  var d = 0;
 
 setInterval(
 
@@ -90,23 +102,25 @@ setInterval(
     1
 
 );
+}
+
+return $(this);
+
+};
+
+$(".rotate").click(function() {
+
+$(this).rotate(); 
+});
+
+});
+
+<pre><code>
 </code></pre>
 
-<p>}</p>
+<p></p>
 
-<pre><code>return $(this);
-</code></pre>
-
-<p>};</p>
-
-<p>$(".rotate").click(function() {</p>
-
-<pre><code>$(this).rotate();
-</code></pre>
-
-<p>});</p>
-
-<p>});`</p>
+<p>`</p>
 
 <hr>
 
