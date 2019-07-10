@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Girando
+</title>
+
+<style>
+
+.rotate {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    font: normal 1em Arial;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+
+</style>
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script>
+
+function getTransformProperty(element) {
+    var properties = [
+        'transform',
+        'WebkitTransform',
+        'msTransform',
+        'MozTransform',
+        'OTransform'
+    ];
+    var p;
+    while (p = properties.shift()) {
+        if (typeof element.style[p] != 'undefined') {
+            return p;
+        }
+    }
+    return false;
+}
+
+
+$( document ).ready(function() {
+
+
+
+
+jQuery.fn.rotate = function() {
+
+var div = document.getElementById('rotate');
+var property = getTransformProperty(div);
+if (property) {
+    var d = 0;
+    setInterval(
+        function () {
+            div.style[property] = 'rotate(' + (d++ % 360) + 'deg)';
+        },
+        1
+    );
+}
+
+    return $(this);
+};
+
+$(".rotate").click(function() {
+    $(this).rotate();
+});
+
+});
+</script>
+
+
+
+
+</head>
+<body>
+
+<div class="rotate" id="rotate">
+    <img src="llanta.jpg" width="200px" />
+</div>
+
+
+
+</body>
+</html>
